@@ -19,16 +19,20 @@ def get(plan='', name='', tag=''):
         clause = " WHERE name=?"
         params = (name,)
     elif tag:
-        # TODO: this should be AND not OR
         # There may be a more elegant way of handling lists of tags!
         tlist = tag.split(',')
         tstring = "("
         for t in tlist:
             tstring += "'" + t + "',"
         tstring = tstring[:-1] + ")"
-        # Caution: doing it this way means that the statement is not called like a prepared statement
-        clause = " JOIN test_tag ON tests.id = test_id JOIN tags ON tags.id = tag_id WHERE tags.name IN " + tstring
 
+        query = ("SELECT s.id, s.name FROM "
+                 "(SELECT * FROM tests JOIN test_tag on tests.id = test_id "
+                 "JOIN tags on tags.id = tag_id WHERE tags.name IN ")
+
+        query = query + tstring + ") as s GROUP BY s.name HAVING COUNT(s.name)=?"
+
+        params = (len(tlist),)
     return db.run_statement(query + clause, params)
 
 
