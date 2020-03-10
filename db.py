@@ -20,7 +20,7 @@ def run_statement(sql, params=()):
     """ get a database connection and execute a query
     :param sql: a prepared sql statement
     :param params: a tuple of parameters
-    :return: results
+    :return: results, list of tuples
     """
     try:
         conn = create_connection('data.db')

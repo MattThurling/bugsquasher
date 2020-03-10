@@ -1,4 +1,7 @@
 def header():
+    """
+    Prints ASCII art
+    """
     print("""\
 
 d8888b. db    db  d888b  .d8888.  .d88b.  db    db  .d8b.  .d8888. db   db d88888b d8888b.
