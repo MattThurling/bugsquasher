@@ -58,5 +58,19 @@ Any test tagged critical which fails will abort the current test plan.
 ## Reporting
 CSV reports of all test runs are stored in the reports directory.
 
+## Creating new tests, plans and tags
+Create a new test:
+```
+python3 create.py -T <test name>
+```
 
+Create a new plan:
+```
+python3 create.py -p <test plan name>
+```
+
+Create a new tag:
+```
+python3 create.py -p <test plan name>
+```
 

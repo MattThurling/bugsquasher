@@ -16,7 +16,7 @@ def create_connection(db_file):
     return conn
 
 
-def run_statement(sql, params=()):
+def run_statement(sql, params=(), mode='read'):
     """ get a database connection and execute a query
     :param sql: a prepared sql statement
     :param params: a tuple of parameters
@@ -26,7 +26,12 @@ def run_statement(sql, params=()):
         conn = create_connection('data.db')
         c = conn.cursor()
         c.execute(sql, params)
-        results = c.fetchall()
+        if mode == 'read':
+            results = c.fetchall()
+        if mode == 'write':
+            conn.commit()
+            results = params[0] + ' saved'
+            print(results)
     except sqlite3.Error as e:
         print(e)
 

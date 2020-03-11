@@ -5,12 +5,11 @@ import tag
 import test
 
 
-def _arguments():
+def arguments():
     """
     Adds custom arguments for the script and parses the user input
     :return: arguments object
     """
-    # TODO: return error when option not specified
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--plan", help="specify a test plan by name")
     parser.add_argument("-T", "--test", help="specify an individual test")
@@ -25,7 +24,7 @@ def get():
     Processes the user inputs and returns tests or lists to process
     :return:
     """
-    args = _arguments()
+    args = arguments()
     tests = []
     resources = []
     report_name = ''

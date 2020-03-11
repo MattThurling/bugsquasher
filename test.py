@@ -36,6 +36,16 @@ def get(plan='', name='', tag=''):
     return db.run_statement(query + clause, params)
 
 
+def store(name):
+    """
+    Creates a new test
+    :param name: str
+    """
+    query = "INSERT INTO tests (name) VALUES (?)"
+    params = (name,)
+    db.run_statement(query, params, mode='write')
+
+
 def tags(test_id):
     """
     Returns the tags associated with a particular test
