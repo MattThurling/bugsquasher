@@ -20,5 +20,5 @@ if __name__ == '__main__':
         list.simple(option[3], resources)
 
     else:
-        print("execute_tests.py: error: invalid input - check spelling")
+        print("execute_tests.py: error: invalid input - check specified resource exists and is spelled correctly")
 
