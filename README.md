@@ -74,3 +74,15 @@ Create a new tag:
 python3 create.py -p <tag name>
 ```
 
+## Attaching tags and plans
+Attach an existing test to an existing plan
+```
+python3 create.py -T <test name> -p <plan name>
+```
+
+Attach an existing tag to an existing test
+```
+python3 create.py -T <test name> -t <tag name>
+```
+
+
