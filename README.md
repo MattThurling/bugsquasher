@@ -71,6 +71,6 @@ python3 create.py -p <test plan name>
 
 Create a new tag:
 ```
-python3 create.py -p <test plan name>
+python3 create.py -p <tag name>
 ```
 
