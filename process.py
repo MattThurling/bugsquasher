@@ -8,6 +8,9 @@ class Process:
     _passed = 0
     _failed = 0
 
+    def __init__(self, options):
+        self._options = options
+
     def _sub(self, filepath):
         proc = subprocess.Popen(['python', filepath], stdout=subprocess.PIPE)
         while True:
@@ -53,7 +56,7 @@ class Process:
         skipped = total - (self._passed + self._failed)
         duration = time() - batch_start
         report.meta(
-                    options='',
+                    options=self._options,
                     total=total,
                     passed=self._passed,
                     failed=self._failed,

@@ -13,9 +13,12 @@ if __name__ == '__main__':
     resources = option[2]
 
     if tests:
-        process = Process()
+        process = Process(option[1])
         process.run(tests, option[1])
 
-    if resources:
+    elif resources:
         list.simple(option[3], resources)
+
+    else:
+        print("execute_tests.py: error: invalid input - check spelling")
 
